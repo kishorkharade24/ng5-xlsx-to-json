@@ -6,7 +6,7 @@
 </div>
 
 <div style="text-align:center">
-  <div class="panel">
+  <div style="border: 2px solid; padding: 2%; margin: auto; width: 52%;">
     <form>
       <input type="file" style="display: inline-block;" (change)="incomingFile($event)" placeholder="Upload file" accept=".xlsx">
       <br><br>
@@ -15,9 +15,9 @@
   </div>
 </div>
 
-<div style="height: 20px"></div>
+<div style="height: 10px"></div>
 
 <div style="text-align:center">
-  <label>Output :</label><br>
-  <textarea [(ngModel)]="output" style="height: 400px; width: 700px; overflow: auto;"></textarea>
+  <h4>OUTPUT :</h4>
+  <textarea [(ngModel)]="output" style="height: 400px; width: 700px; overflow: auto; border: 3px solid;"></textarea>
 </div>
