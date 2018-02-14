@@ -10,7 +10,7 @@ Run `ng serve --open` for a dev server. Navigate to `http://localhost:4200/`. Th
 
 ## Install Dependencies
 
-All you need to do is to install the library:
+All you need to do is to install the library: [Reference](https://www.npmjs.com/package/ts-xlsx)
 
     npm install --save ts-xlsx
 And then the typings for the library:
