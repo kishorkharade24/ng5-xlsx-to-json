@@ -1,8 +1,23 @@
 <div style="text-align:center">
   <h1>
-    Welcome to {{ title }}!
+    XLSX Reader
   </h1>
+  <h5>Convert xlsx data to JSON</h5>
 </div>
 
-<input type="file" style="display: inline-block;" (change)="incomingfile($event)" placeholder="Upload file" accept=".xlsx">
-<button type="button" class="btn btn-info" (click)="Upload()" >Upload</button>
+<div style="text-align:center">
+  <div class="panel">
+    <form>
+      <input type="file" style="display: inline-block;" (change)="incomingfile($event)" placeholder="Upload file" accept=".xlsx">
+      <br><br>
+      <button type="button" class="btn btn-info" (click)="Upload()" >Upload</button>
+    </form>
+  </div>
+</div>
+
+<div style="height: 20px"></div>
+
+<div style="text-align:center">
+  <label>Output :</label><br>
+  <textarea [(ngModel)]="output" style="height: 400px; width: 100%; overflow: auto;"></textarea>
+</div>

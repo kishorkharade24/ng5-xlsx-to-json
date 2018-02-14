@@ -11,6 +11,7 @@ export class AppComponent {
 
   arrayBuffer: any;
   file: File;
+  output: any;
 
   incomingfile(event) {
     this.file= event.target.files[0];
@@ -28,6 +29,7 @@ export class AppComponent {
       var first_sheet_name = workbook.SheetNames[0];
       var worksheet = workbook.Sheets[first_sheet_name];
       console.log(XLSX.utils.sheet_to_json(worksheet,{raw:true}));
+      this.output = JSON.stringify(XLSX.utils.sheet_to_json(worksheet,{raw:true}));
     }
     fileReader.readAsArrayBuffer(this.file);
   }
