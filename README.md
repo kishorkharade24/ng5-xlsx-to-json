@@ -4,6 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Xlxs Reader will read data from xlsx file and convert it to JSON.
 
+## [Demo](https://ng5-xlsx-to-json.herokuapp.com/) 
+
 ## Development server
 
 Run `ng serve --open` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
