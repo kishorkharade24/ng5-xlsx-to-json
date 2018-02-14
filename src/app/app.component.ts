@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import * as XLSX from 'ts-xlsx';
+import {isNullOrUndefined} from "util";
 
 @Component({
   selector: 'app-root',
@@ -10,24 +11,35 @@ export class AppComponent {
   arrayBuffer: any;
   file: File;
   output: any;
+  sheetNumber: number = 0;
 
   incomingFile(event) {
     this.file = event.target.files[0];
   }
 
   Upload() {
+    if (!this.file) {
+      alert("Please select xmls file.");
+      return false;
+    }
+
     let fileReader = new FileReader();
     fileReader.onload = (e) => {
       this.arrayBuffer = fileReader.result;
-      var data = new Uint8Array(this.arrayBuffer);
-      var arr = new Array();
+      let data = new Uint8Array(this.arrayBuffer);
+      let arr = new Array();
 
-      for(var i = 0; i != data.length; ++i) arr[i] = String.fromCharCode(data[i]);
+      for(let i = 0; i != data.length; ++i) arr[i] = String.fromCharCode(data[i]);
 
-      var bstr = arr.join("");
-      var workbook = XLSX.read(bstr, {type:"binary"});
-      var first_sheet_name = workbook.SheetNames[0];
-      var worksheet = workbook.Sheets[first_sheet_name];
+      let bstr = arr.join("");
+      let workbook = XLSX.read(bstr, {type:"binary"});
+
+      if (this.sheetNumber === null || this.sheetNumber === undefined || this.sheetNumber < 0) {
+        this.sheetNumber = 0;
+      }
+
+      let sheet_name = workbook.SheetNames[this.sheetNumber];
+      let worksheet = workbook.Sheets[sheet_name];
 
       // console.log(XLSX.utils.sheet_to_json(worksheet,{raw:true}));
       this.output = JSON.stringify(XLSX.utils.sheet_to_json(worksheet,{raw:true}), null, 4);

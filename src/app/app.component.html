@@ -10,6 +10,12 @@
     <form>
       <input type="file" style="display: inline-block;" (change)="incomingFile($event)" placeholder="Upload file" accept=".xlsx">
       <br><br>
+
+      <label>Enter Sheet No :</label>
+      <input type="number" name="sheet-number" class="form-control" min="0"
+             placeholder="Enter sheet number" [(ngModel)]="sheetNumber"/>
+      <br><br>
+
       <button type="button" class="btn btn-info" (click)="Upload()" >Upload</button>
     </form>
   </div>
