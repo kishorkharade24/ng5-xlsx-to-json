@@ -7,14 +7,12 @@ import * as XLSX from 'ts-xlsx';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-
   arrayBuffer: any;
   file: File;
   output: any;
 
-  incomingfile(event) {
-    this.file= event.target.files[0];
+  incomingFile(event) {
+    this.file = event.target.files[0];
   }
 
   Upload() {
@@ -23,13 +21,16 @@ export class AppComponent {
       this.arrayBuffer = fileReader.result;
       var data = new Uint8Array(this.arrayBuffer);
       var arr = new Array();
+
       for(var i = 0; i != data.length; ++i) arr[i] = String.fromCharCode(data[i]);
+
       var bstr = arr.join("");
       var workbook = XLSX.read(bstr, {type:"binary"});
       var first_sheet_name = workbook.SheetNames[0];
       var worksheet = workbook.Sheets[first_sheet_name];
-      console.log(XLSX.utils.sheet_to_json(worksheet,{raw:true}));
-      this.output = JSON.stringify(XLSX.utils.sheet_to_json(worksheet,{raw:true}));
+
+      // console.log(XLSX.utils.sheet_to_json(worksheet,{raw:true}));
+      this.output = JSON.stringify(XLSX.utils.sheet_to_json(worksheet,{raw:true}), null, 4);
     }
     fileReader.readAsArrayBuffer(this.file);
   }
