@@ -1,6 +1,7 @@
 # XlsxReader
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.
+
 Xlxs Reader will read data from xlsx file and convert it to JSON.
 
 ## Development server
@@ -9,6 +10,14 @@ Run `ng serve --open` for a dev server. Navigate to `http://localhost:4200/`. Th
 
 ## Install Dependencies
 
-npm install --save ts-xlsx
+All you need to do is to install the library:
+
+    npm install --save ts-xlsx
+And then the typings for the library:
+
+    typings install --save --global dt~xlsx
+or
+
+    npm install --save @types/xlsx
 
 
