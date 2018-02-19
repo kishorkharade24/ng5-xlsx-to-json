@@ -7,13 +7,31 @@
 
 <div style="text-align:center">
   <div style="border: 2px solid; padding: 2%; margin: auto; width: 52%;">
-    <form>
-      <input type="file" style="display: inline-block;" (change)="incomingFile($event)" placeholder="Upload file" accept=".xlsx">
+    <form name="xlsx-from">
+      <div class="col-md-12">
+        <div class="col-md-4">
+          <label>SELECT FILE</label>
+        </div>
+        <div class="col-md-6">
+          <input type="file" class="form-control" style="display: inline-block;"
+                 (change)="incomingFile($event)" placeholder="Upload file" accept=".xlsx">
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+
       <br><br>
 
-      <label>Enter Sheet No :</label>
-      <input type="number" name="sheet-number" class="form-control" min="0"
-             placeholder="Enter sheet number" [(ngModel)]="sheetNumber"/>
+      <div class="col-md-12">
+        <div class="col-md-4">
+          <label>ENTER SHEET NO</label>
+        </div>
+        <div class="col-md-6">
+          <input type="number" name="sheet-number" class="form-control" min="0"
+                 placeholder="Enter sheet number" [(ngModel)]="sheetNumber"/>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+
       <br><br>
 
       <button type="button" class="btn btn-info" (click)="Upload()">Fetch Data</button>
